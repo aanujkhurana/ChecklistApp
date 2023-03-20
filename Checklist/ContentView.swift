@@ -10,15 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            // HEADING
+            // CHECKLIST NAME
             Text("Anuj's Checklist")
-            
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
                 .padding(.top)
             
-            // LIST OF CHECKLIST IMEMS
+            // CHECKLIST IMEMS
             List{
                 ForEach (Checklists, id:\.self){
                     Checklist in
@@ -26,6 +25,7 @@ struct ContentView: View {
                 }
             }
         }
+
     }
 }
     
