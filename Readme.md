@@ -1,16 +1,15 @@
-# Assignment 1
-
+#Assignment 1
 ##milestone 1
 
-In Week 2 I learnt:
-1.
+###In Week 2 I learnt:
+1.How to Commint on git and check history of code and tag brances
 2.
 3.
 4.
 5.
 6.
 
-For Assignment 1 (checklist App):
+###For Assignment 1 (checklist App) I implemented:
 1. created new ios xcode app
 2. added basic structure to content view with Vertical stack (Vstack).
 3. added Text for headline in Vstack.
@@ -23,5 +22,6 @@ For Assignment 1 (checklist App):
 10. Extracted the Hstack including text and Tickmark using extract subview and renamed the tag 
 11. Moved extracted subview in a new file called ChecklistView and also moved the Array of Checklists to the same file.
 12. Build the app to check everything is working 
- 
+13. Added ontap guesture to add option to check/uncheck items, commited again after checking & building app
+14. Added datamodel and XCT tests and commit
 

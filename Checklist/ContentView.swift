@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             // CHECKLIST NAME
-            Text("Anuj's Checklist")
+            Text("Shopping's Checklist")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
