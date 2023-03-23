@@ -9,7 +9,7 @@ import SwiftUI
 
 //list of items
 let Checklists = [
-    ["Checked","Get Grocceries"],["UnChecked","Water Plants"],["UnChecked","Assignment MAD"],["Checked","Online Course"],["Checked","Get Haircut"],["Checked","Quiz BigData"]
+    ["Checked","Toothbrush"],["Checked","Plants"],["Checked","Foil & Clinggy"],["Checked","Chips & Crackers"],["UnChecked","Choclates"],["UnChecked","IceCream"],["UnChecked","Bread Butter"],["UnChecked","Chicken"]
 ]
 
 
