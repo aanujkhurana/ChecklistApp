@@ -2,18 +2,18 @@
 ##milestone 1
 
 ###In Week 2 I learnt:
-1.How to Commint on git and check history of code and tag brances
-2.
-3.
-4.
-5.
-6.
+.How to Commint on git and check history of code and tag brances.
+.Basic of Swift and SwiftUI and what is an Anatomy of an App
+.the importance of playground how to use it.
+.How to create test function and run test using test data.
+.Single View App and master/Detail View app with simple GUI.
+.
 
 ###For Assignment 1 (checklist App) I implemented:
 1. created new ios xcode app
 2. added basic structure to content view with Vertical stack (Vstack).
 3. added Text for headline in Vstack.
-4. Created a array of strings called Checklists with two item, 0 being the check status and 1 being the name of the item.
+4. Created a array of strings called Checklists with two item, the check status and the name of the item.
 5. added a list tag in vstack for checklist item.
 6. Using foreach loop the checklist items are displayed in list.
 7. image of check tick mark is displayed using for loop to check the status of each item.

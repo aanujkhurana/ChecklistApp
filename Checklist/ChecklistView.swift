@@ -12,14 +12,10 @@ let Checklists = [
     ["Checked","Get Grocceries"],["UnChecked","Water Plants"],["UnChecked","Assignment MAD"],["Checked","Online Course"],["Checked","Get Haircut"],["Checked","Quiz BigData"]
 ]
 
-//LIST AS DICT
-//var Checklists:[Int: String] = [0: "Pencil", 0: "coffee", 0: "sugar", 0: "fruits", 0: "foil", 0: "tape"
-//]
-// 0 = unchecked
 
 
 struct ChecklistView: View {
-    @State var Checklist: [String]
+    var Checklist: [String]
     var body: some View {
         HStack{
             Text(Checklist[1])
@@ -32,13 +28,7 @@ struct ChecklistView: View {
                 Image(systemName: "checkmark.seal.fill").resizable().foregroundColor(Color(.systemGreen)).frame(width: 30, height: 30)}
             //CHECKMARK IMAGE
             }.onTapGesture {
-            if (Checklist[0] == "UnChecked"){
-                Checklist[0] = "Checked"
-                    }
-            else{
-                Checklist[0] = "UnChecked"
-                    }
-            print("\(Checklist[0]) \(Checklist[1])")
+            print("Pressed \(Checklist[1])")
         }
     }
 }

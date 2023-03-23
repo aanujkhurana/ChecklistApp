@@ -19,7 +19,7 @@ final class ChecklistTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testChecklist() throws {
         let test1 = testData[0]
         let test2 = testData[1]
         XCTAssertNotNil(test1)
