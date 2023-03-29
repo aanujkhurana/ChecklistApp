@@ -8,30 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Binding var model: DataModel
+    
     var body: some View {
-        VStack {
-            // CHECKLIST NAME
-            Text("Shopping's Checklist")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-                .padding(.top)
-            
-            // CHECKLIST IMEMS
-            List{
-                ForEach (Checklists, id:\.self){
-                    Checklist in
-                    ChecklistView(Checklist: Checklist)
-                }
+        NavigationView {
+            VStack {
+                List{
+                    ForEach($model.checklists, id: \.self){
+                        $checklist in
+                        NavigationLink(destination: ChecklistView(checklist: $checklist)){
+                            Text(checklist.name) // CHECKLISTS NAME
+                        }
+                    }
+                }.navigationTitle("title")
             }
         }
-
     }
 }
     
     struct ContentView_Previews: PreviewProvider {
+        @State static var model = DataModel()
         static var previews: some View {
-            ContentView()
+            ContentView(model: $model)
         }
     }
 

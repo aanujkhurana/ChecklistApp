@@ -7,12 +7,13 @@
 
 import SwiftUI
 
+//Main
 @main
 struct ChecklistApp: App {
-
+    @State var model: DataModel = DataModel() //create state for binding
     var body: some Scene {
         WindowGroup {
-         ContentView()
+            ContentView(model: $model) //binding
         }
     }
 }
