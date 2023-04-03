@@ -10,7 +10,7 @@ import Foundation
 //Checklists
 struct Checklists: Codable, Hashable, Identifiable {
     var id = UUID()
-    var name: String
+    var title: String
     var items: [Items]
 }
 
@@ -23,8 +23,8 @@ struct Items: Hashable, Codable, Identifiable {
 
 // TestData
 var testData = [
-    Checklists(name: "Checklist1", items:[Items(name: "Item121", status: false), Items(name: "Item909", status: true)]),
-    Checklists(name: "Checklist2", items: [Items(name: "dishes", status: false), Items(name: "shopping", status: true)])
+    Checklists(title: "Checklist1", items:[Items(name: "Item121", status: false), Items(name: "Item909", status: true)]),
+    Checklists(title: "Checklist2", items: [Items(name: "dishes", status: false), Items(name: "shopping", status: true)])
 ]
 
 

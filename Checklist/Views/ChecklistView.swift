@@ -12,13 +12,32 @@ import SwiftUI
 struct ChecklistView: View {
     
     @Binding var checklist: Checklists
-    @State var tempChecklist = Checklists(name: "", items: [])
+    @State var tempChecklist = Checklists(title: "", items: [])
     @State var hasAlert = false
     @State var status: Bool = false
     
+    @Environment(\.editMode) var editMode
+//    clear function
+    func clearList(){
+        tempChecklist.items = []
+        print("clear List is called")
+    }
+    
+//    add item function
+    func addItem(_ itm: String) {
+        if(itm != "") {
+            let newItem = Items(name: itm, status: false)
+            tempChecklist.items.append(newItem)
+        } else {
+            hasAlert = true
+        }
+    }
     
     var body: some View {
         VStack {
+            HStack {
+                TitleEditView(title: $tempChecklist.title)
+            }
             List {
                 ForEach($tempChecklist.items) {
                     $item in
@@ -37,11 +56,13 @@ struct ChecklistView: View {
                 }
                 .onDelete(perform: deleteItem)
                 .onMove(perform: moveItem)
+                
+            if(editMode?.wrappedValue == .active) {
+                NewItemView(callback: addItem)}
             }
 
         }
-        .navigationTitle(checklist.name)
-        .navigationBarItems(trailing: EditButton())
+        .navigationBarItems(leading:ClearButton(fun: clearList) ,trailing: EditButton()).padding(.leading)
         .onAppear{
             tempChecklist = checklist}
         .onDisappear{

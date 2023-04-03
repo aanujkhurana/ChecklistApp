@@ -18,7 +18,7 @@ struct ContentView: View {
                     ForEach($model.checklists){
                         $checklist in
                         NavigationLink(destination: ChecklistView(checklist: $checklist)){
-                            Text(checklist.name) // CHECKLISTS NAME
+                            Text(checklist.title) // CHECKLISTS NAME
                         }
                     }.onDelete(perform: deleteChecklist)
                         .onMove(perform: moveChecklist)
@@ -40,7 +40,7 @@ struct ContentView: View {
         }
     //add
         func addChecklist() {
-            let newChecklist = Checklists(name: "New Checklist", items: [Items(name: "", status: false)])
+            let newChecklist = Checklists(title: "New Checklist", items: [Items(name: "", status: false)])
             model.checklists.append(newChecklist)
     }
 }
