@@ -103,8 +103,7 @@
 			children = (
 				AE1DB99829C54E270089BD8E /* ChecklistApp.swift */,
 				AE1DB9C729C54F520089BD8E /* DataModel.swift */,
-				AE1DB99A29C54E270089BD8E /* ContentView.swift */,
-				AE1DB9CC29C572220089BD8E /* ChecklistView.swift */,
+				AE396BE829D504270043CA65 /* Views */,
 				AE1DB99C29C54E280089BD8E /* Assets.xcassets */,
 				AE1DB99E29C54E280089BD8E /* Preview Content */,
 			);
@@ -134,6 +133,15 @@
 				AE1DB9B529C54E280089BD8E /* ChecklistUITestsLaunchTests.swift */,
 			);
 			path = ChecklistUITests;
+			sourceTree = "<group>";
+		};
+		AE396BE829D504270043CA65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE1DB99A29C54E270089BD8E /* ContentView.swift */,
+				AE1DB9CC29C572220089BD8E /* ChecklistView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

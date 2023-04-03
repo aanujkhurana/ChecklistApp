@@ -8,7 +8,8 @@
 import Foundation
 
 //Checklists
-struct Checklists: Hashable, Codable {
+struct Checklists: Codable, Hashable, Identifiable {
+    var id = UUID()
     var name: String
     var items: [Items]
 }
@@ -21,14 +22,15 @@ struct Items: Hashable, Codable, Identifiable {
 }
 
 // TestData
-var testChecklists=[
+var testData = [
     Checklists(name: "Checklist1", items:[Items(name: "Item121", status: false), Items(name: "Item909", status: true)]),
     Checklists(name: "Checklist2", items: [Items(name: "dishes", status: false), Items(name: "shopping", status: true)])
 ]
 
+
 // Wrtie and load to file
 func getFile() -> URL? {
-    let fileName="mychecklists.json"
+    let fileName="checklists.json"
     let fm=FileManager.default
     guard let url=fm.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first
     else{ return nil}
@@ -38,7 +40,7 @@ func getFile() -> URL? {
 
 // DataModel
 struct DataModel: Codable {
-    var checklists: [Checklists]
+    var checklists: [Checklists] = []
     init() {
         checklists = []
         load()
@@ -48,7 +50,7 @@ struct DataModel: Codable {
         guard let url=getFile(),
               let data=try? Data(contentsOf: url),
               let datamodel=try? JSONDecoder().decode(DataModel.self, from: data)
-        else{ self.checklists=testChecklists
+        else{ self.checklists=testData
             return
         }
         self.checklists=datamodel.checklists
@@ -63,4 +65,7 @@ struct DataModel: Codable {
         }
         try? data.write(to: url)
     }
+    
 }
+
+
