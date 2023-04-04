@@ -20,11 +20,13 @@ final class ChecklistTests: XCTestCase {
     }
 
     func testChecklist() throws {
-//        let test1 = testData[0]
-//        let test2 = testData[1]
-//        XCTAssertNotNil(test1)
-//        XCTAssertEqual(test2.status,"UnChecked")
-//        XCTAssertNotNil(test2)
+        let test1 = testData[0]
+        let test2 = testData[1]
+        XCTAssertNotNil(test1)
+        XCTAssertNotNil(test2)
+        XCTAssertEqual(test1.items[1].status,true)
+        XCTAssertEqual(test1.title,"Checklist1")
+        XCTAssertEqual(test2.items[0].status,false)
     }
 
     func testPerformanceExample() throws {

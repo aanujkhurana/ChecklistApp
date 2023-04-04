@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewItemView: View {
+struct AddItemView: View {
     
     @Environment(\.editMode) var editMode
     
@@ -16,7 +16,6 @@ struct NewItemView: View {
     @State var item = ""
     
     var body: some View {
-        VStack {
             if(editMode?.wrappedValue == .active) {
                 HStack{
                     Image(systemName: "plus.circle")
@@ -25,14 +24,11 @@ struct NewItemView: View {
                         .frame(width: 25, height: 25)
                         .onTapGesture {
                         callback(item)
-                        item = ""
-                    }
+                        item = "" }
                     TextField("Type Item here: ", text: $item)
                         .padding(8)
                         .fontWeight(.medium)
                         .font(.system(size: 18))
-                }
-            }
-        }
+                }}
     }
 }

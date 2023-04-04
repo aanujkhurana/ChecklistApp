@@ -22,17 +22,11 @@ struct TitleEditView: View {
                     TextField("input new value:", text: $newtitle)
                     .font(.title)
                     .fontWeight(.medium)
-                    Button("Cancel"){
-                        newtitle = title
-                    }
-                }.onAppear{
-                    newtitle = title
-                }.onDisappear{
-                    title = newtitle
-                }
-            }else {
-                Text(title)
+                    Button("Cancel"){newtitle = title}
+                }.onAppear{newtitle = title}
+                 .onDisappear{title = newtitle}
             }
+            else {Text(title)}
         }
     }
 }

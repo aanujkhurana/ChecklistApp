@@ -31,40 +31,41 @@ var testData = [
 struct DataModel: Codable {
 
     var checklists: [Checklists] = []
-    var title: String = ""
     
     init() {
-        checklists = testData
+        checklists = []
         load()
     }
-    
+
+//    LOAD function
     mutating func load() {
-        guard let url = getFile(),
-              let data = try? Data(contentsOf: url),
-              let model = try? JSONDecoder().decode(DataModel.self, from: data)
-        else {
-            print("failed to load")
-            self.title = "failed to load"
+        guard let url=getFile(),
+              let data=try? Data(contentsOf: url),
+              let datamodel=try? JSONDecoder().decode(DataModel.self, from: data)
+        else { self.checklists = testData
             return
         }
-        self.title = model.title
+        self.checklists = datamodel.checklists
     }
-    func save() {
-        guard let url = getFile(),
-              let data = try? JSONEncoder().encode(self)
-             else {
-            print("fail to save")
-            return
-        }
-        try? data.write(to: url)
-    }
+//    GETFILE function
     func getFile () -> URL? {
-        let filename = "checklistapp.json"
+        let filename = "saveload.json"
         let fm = FileManager.default
-        guard let url = fm.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.allDomainsMask).first else {
+        guard let url = fm.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.allDomainsMask).first
+        else {
             return nil
         }
         return url.appendingPathComponent(filename)
+    }
+//    SAVE function
+    func save() {
+        guard let url=getFile(),
+              let data=try?
+                JSONEncoder().encode(self)
+        else{
+            return
+        }
+        try? data.write(to: url)
     }
 }
 

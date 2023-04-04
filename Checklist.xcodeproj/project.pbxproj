@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		AE1DB99929C54E270089BD8E /* ChecklistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB99829C54E270089BD8E /* ChecklistApp.swift */; };
-		AE1DB99B29C54E270089BD8E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB99A29C54E270089BD8E /* ContentView.swift */; };
+		AE1DB99B29C54E270089BD8E /* ChecklistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB99A29C54E270089BD8E /* ChecklistsView.swift */; };
 		AE1DB99D29C54E280089BD8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1DB99C29C54E280089BD8E /* Assets.xcassets */; };
 		AE1DB9A029C54E280089BD8E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1DB99F29C54E280089BD8E /* Preview Assets.xcassets */; };
 		AE1DB9B429C54E280089BD8E /* ChecklistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB9B329C54E280089BD8E /* ChecklistUITests.swift */; };
 		AE1DB9B629C54E280089BD8E /* ChecklistUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB9B529C54E280089BD8E /* ChecklistUITestsLaunchTests.swift */; };
 		AE1DB9C329C54E8A0089BD8E /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = AE1DB9C229C54E8A0089BD8E /* Readme.md */; };
 		AE1DB9CA29C550D50089BD8E /* ChecklistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB9A929C54E280089BD8E /* ChecklistTests.swift */; };
-		AE1DB9CD29C572220089BD8E /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB9CC29C572220089BD8E /* ChecklistView.swift */; };
+		AE1DB9CD29C572220089BD8E /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB9CC29C572220089BD8E /* ItemsView.swift */; };
 		AE23041F29DAF24600AB8A35 /* TitleEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23041E29DAF24600AB8A35 /* TitleEditView.swift */; };
-		AE23042129DAF33700AB8A35 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23042029DAF33700AB8A35 /* NewItemView.swift */; };
-		AE23042329DAF9B000AB8A35 /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23042229DAF9B000AB8A35 /* ClearButton.swift */; };
+		AE23042129DAF33700AB8A35 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23042029DAF33700AB8A35 /* AddItemView.swift */; };
+		AE23042329DAF9B000AB8A35 /* UndoResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23042229DAF9B000AB8A35 /* UndoResetButton.swift */; };
 		AEF1D31E29C965D900506AC3 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB9C729C54F520089BD8E /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		AE1DB99529C54E270089BD8E /* Checklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1DB99829C54E270089BD8E /* ChecklistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistApp.swift; sourceTree = "<group>"; };
-		AE1DB99A29C54E270089BD8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AE1DB99A29C54E270089BD8E /* ChecklistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsView.swift; sourceTree = "<group>"; };
 		AE1DB99C29C54E280089BD8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE1DB99F29C54E280089BD8E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AE1DB9A529C54E280089BD8E /* ChecklistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChecklistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,10 +52,10 @@
 		AE1DB9B529C54E280089BD8E /* ChecklistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AE1DB9C229C54E8A0089BD8E /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		AE1DB9C729C54F520089BD8E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		AE1DB9CC29C572220089BD8E /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		AE1DB9CC29C572220089BD8E /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
 		AE23041E29DAF24600AB8A35 /* TitleEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditView.swift; sourceTree = "<group>"; };
-		AE23042029DAF33700AB8A35 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
-		AE23042229DAF9B000AB8A35 /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
+		AE23042029DAF33700AB8A35 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		AE23042229DAF9B000AB8A35 /* UndoResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoResetButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,11 +144,11 @@
 		AE396BE829D504270043CA65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AE1DB99A29C54E270089BD8E /* ContentView.swift */,
-				AE1DB9CC29C572220089BD8E /* ChecklistView.swift */,
+				AE1DB99A29C54E270089BD8E /* ChecklistsView.swift */,
+				AE1DB9CC29C572220089BD8E /* ItemsView.swift */,
 				AE23041E29DAF24600AB8A35 /* TitleEditView.swift */,
-				AE23042029DAF33700AB8A35 /* NewItemView.swift */,
-				AE23042229DAF9B000AB8A35 /* ClearButton.swift */,
+				AE23042029DAF33700AB8A35 /* AddItemView.swift */,
+				AE23042229DAF9B000AB8A35 /* UndoResetButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,13 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE23042129DAF33700AB8A35 /* NewItemView.swift in Sources */,
-				AE1DB99B29C54E270089BD8E /* ContentView.swift in Sources */,
+				AE23042129DAF33700AB8A35 /* AddItemView.swift in Sources */,
+				AE1DB99B29C54E270089BD8E /* ChecklistsView.swift in Sources */,
 				AEF1D31E29C965D900506AC3 /* DataModel.swift in Sources */,
-				AE1DB9CD29C572220089BD8E /* ChecklistView.swift in Sources */,
+				AE1DB9CD29C572220089BD8E /* ItemsView.swift in Sources */,
 				AE23041F29DAF24600AB8A35 /* TitleEditView.swift in Sources */,
 				AE1DB99929C54E270089BD8E /* ChecklistApp.swift in Sources */,
-				AE23042329DAF9B000AB8A35 /* ClearButton.swift in Sources */,
+				AE23042329DAF9B000AB8A35 /* UndoResetButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
