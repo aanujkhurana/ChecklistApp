@@ -13,20 +13,30 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack (alignment: .leading) {
                 List{
                     ForEach($model.checklists){
                         $checklist in
                         NavigationLink(destination: ChecklistView(checklist: $checklist)){
-                            Text(checklist.title) // CHECKLISTS NAME
-                        }
+                            Text(checklist.title)
+                                .font(.system(size: 20))
+                                .fontWeight(.medium)
+                        }.padding(8)
                     }.onDelete(perform: deleteChecklist)
                         .onMove(perform: moveChecklist)
-                }.navigationTitle("My lists 📝")
-                    .navigationBarItems(leading: Button("Add+"){
+                }.navigationTitle("My Checklists 📝")
+                 .navigationBarItems(leading: Button("Add +"){
                         addChecklist()
                     }, trailing: EditButton() )
+                 .padding(.top,2)
+                 .listStyle(.automatic)
+                 .background(.white)
             }
+        }.onAppear{
+            model.load()
+        }
+        .onDisappear{
+            model.save()
         }
     }
     //    Checklist functions

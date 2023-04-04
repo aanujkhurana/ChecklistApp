@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ClearButton: View {
+    
     @Environment(\.editMode) var editMode
     var fun: () -> Void
+    
     var body: some View {
         HStack{
             if(editMode?.wrappedValue == .active) {
@@ -20,3 +22,5 @@ struct ClearButton: View {
         }
     }
 }
+
+

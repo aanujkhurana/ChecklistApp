@@ -15,50 +15,62 @@ struct ChecklistView: View {
     @State var tempChecklist = Checklists(title: "", items: [])
     @State var hasAlert = false
     @State var status: Bool = false
+    @State private var textfieldtext: String = ""
     
     @Environment(\.editMode) var editMode
-//    clear function
-    func clearList(){
-        tempChecklist.items = []
-        print("clear List is called")
-    }
-    
-//    add item function
-    func addItem(_ itm: String) {
-        if(itm != "") {
-            let newItem = Items(name: itm, status: false)
-            tempChecklist.items.append(newItem)
-        } else {
-            hasAlert = true
-        }
-    }
     
     var body: some View {
-        VStack {
-            HStack {
-                TitleEditView(title: $tempChecklist.title)
-            }
-            List {
-                ForEach($tempChecklist.items) {
-                    $item in
-                    HStack {
-                        Text(item.name)
-                        Spacer()
-                        if (item.status == true){
-                            Image(systemName: "checkmark.seal.fill").foregroundColor(.green)
-                        }
-                    }.onTapGesture {
-                        if (item.status != true){
-                            item.status = true
-                        }
-                        else {item.status = false}
-                        }
+        VStack (alignment: .leading) {
+            HStack  {
+                if(editMode?.wrappedValue == .active) {
+                    TitleEditView(title: $tempChecklist.title)
                 }
-                .onDelete(perform: deleteItem)
-                .onMove(perform: moveItem)
-                
-            if(editMode?.wrappedValue == .active) {
-                NewItemView(callback: addItem)}
+                else {
+                    Text(tempChecklist.title)
+                    .font(.title)
+                    .fontWeight(.medium)}
+            }.padding(10)
+            Spacer()
+            HStack {
+                List {
+                    ForEach($tempChecklist.items) {
+                        $item in
+                        HStack {
+                            Text(item.name)
+                                .font(.system(size: 18))
+                                .fontWeight(.regular)
+                                .padding(8)
+                            Spacer()
+                            if (item.status == true){
+                                Image(systemName: "checkmark.seal.fill")
+                                    .resizable().foregroundColor(Color(.systemGreen)).frame(width: 25, height: 25)
+                            }
+                        }.onTapGesture {
+                            if (item.status != true){
+                                item.status = true
+                            }
+                            else {item.status = false}
+                        }
+                    }
+                    .onDelete(perform: deleteItem)
+                    .onMove(perform: moveItem)
+                    
+                    if(editMode?.wrappedValue == .active) {
+                        NewItemView(callback: addItem)
+                    }
+                    else {
+                        HStack{
+                            Image(systemName: "plus.circle")
+                                .resizable()
+                                .foregroundColor(Color(.systemGreen))
+                                .frame(width: 25, height: 25)
+                                .onTapGesture {
+                                    addItem("\(textfieldtext)")
+                                        textfieldtext = ""
+                                    }
+                            TextField("Type Item here:", text: $textfieldtext)
+                            }.padding(10)}
+                }.listStyle(.plain)
             }
 
         }
@@ -71,22 +83,41 @@ struct ChecklistView: View {
 
 
     
-    //    Items functions
+///////    Items functions
     //Delete
         func deleteItem(indexSet: IndexSet) {
-            checklist.items.remove(atOffsets: indexSet)
+            tempChecklist.items.remove(atOffsets: indexSet)
         }
     //Move
         func moveItem(from: IndexSet, to: Int) {
-            checklist.items.move(fromOffsets: from, toOffset: to)
+            tempChecklist.items.move(fromOffsets: from, toOffset: to)
         }
     //Add
-//        func addItem() {
-//            let newItem = Checklists(name: checklist.name, items: [Items(name: "", status: false)])
-//            checklist.items.append(newItem)
-//            model.save()
+        func addItem(_ item: String) {
+            if(item != "") {
+                let newItem = Items(name: item, status: false)
+                tempChecklist.items.append(newItem)
+            } else {
+                hasAlert = true
+            }
+        }
+    // Clear function
+        func clearList(){
+            tempChecklist.items = []
+            print("clear List is called")
+        }
+    
+//    func removeticks() {
+//        HStack {
+//            ForEach($tempChecklist.items, id: \.self) {
+//                $item in
+//                HStack {
+//                    if (item.status == true) {
+//                        item.status = false
+//                    }
+//            }}
 //        }
-
+//    }
 }
 
 struct ChecklistView_Previews: PreviewProvider {

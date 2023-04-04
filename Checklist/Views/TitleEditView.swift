@@ -18,8 +18,10 @@ struct TitleEditView: View {
         HStack{
             if(editMode?.wrappedValue == .active) {
                 HStack{
-                    Image(systemName: "pencil.line")
+                    Image(systemName: "pencil")
                     TextField("input new value:", text: $newtitle)
+                    .font(.title)
+                    .fontWeight(.medium)
                     Button("Cancel"){
                         newtitle = title
                     }
