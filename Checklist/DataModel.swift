@@ -11,17 +11,17 @@ import Foundation
 struct Checklists: Codable, Hashable, Identifiable {
     var id = UUID()
     var title: String
-    var items: [Items]
+    var items: [Items] //list of items
 }
 
 // Checklist items
 struct Items: Hashable, Codable, Identifiable {
     var id = UUID()
     var name: String
-    var status: Bool
+    var status: Bool // to check uncheck items in checklist
 }
 
-//TestData
+//TestData for testing
 var testData = [
     Checklists(title: "Checklist1", items:[Items(name: "Item121", status: false), Items(name: "Item909", status: true)]),
     Checklists(title: "Checklist2", items: [Items(name: "dishes", status: false), Items(name: "shopping", status: true)])
