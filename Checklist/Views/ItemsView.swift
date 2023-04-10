@@ -21,34 +21,32 @@ struct ItemsView: View {
     @Environment(\.editMode) var editMode
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack {
             HStack  {
                 //in edit mode
                 if(editMode?.wrappedValue == .active) {
-                    TitleEditView(title: $tempChecklist.title)}
+                    TitleEditView(title: $tempChecklist.title).padding(.leading)}
                 else {
                     Text(tempChecklist.title.capitalized)
                     .font(.title)
-                    .fontWeight(.medium)}
-            }.padding(10)
-            Spacer()
-            HStack {
+                    .fontWeight(.medium)}}
                 List {
-                    ForEach($tempChecklist.items) {
+                    ForEach($tempChecklist.items){
                         $item in
                         HStack {
                             Text(item.name.capitalized)
                                 .foregroundColor(.accentColor)
                                 .font(.system(size: 18))
                                 .fontWeight(.medium)
-                                .padding(8)
+                                .padding(6)
                             Spacer()
                             if (item.status == true){
                                 Image(systemName: "checkmark.seal.fill")
                                     .resizable()
                                     .foregroundColor(Color(.systemGreen))
                                     .frame(width: 25, height: 25)}
-                        }.onTapGesture {
+                        }.padding(4)
+                        .onTapGesture {
                             if (item.status != true){item.status = true
                                 print("Item Status Changed")
                             }
@@ -68,17 +66,16 @@ struct ItemsView: View {
                                 .onTapGesture {
                                     addItem("\(textfieldtext)")
                                     textfieldtext = "" }
-                            TextField("Type Item here:", text: $textfieldtext)}
-                        .padding(10)}
-                }
-                .listStyle(.plain)
+                            TextField("Type Item here:", text: $textfieldtext)}.padding(10)
+                    }
+                }.listStyle(.plain)
             }
-            .navigationBarItems(leading:UndoResetButton(reset: resetList, undo: undoreset) ,trailing: EditButton()).padding(.leading,40)
+            .navigationTitle("📝").padding()
+            .navigationBarItems(leading:UndoResetButton(reset: resetList, undo: undoreset) ,trailing: EditButton())
             .onAppear{tempChecklist = checklist}
             .onDisappear{
                 checklist = tempChecklist
                 model.save()} // need to save model after it is changed.
-        }
     }
 
 ///////   Items functions

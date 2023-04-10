@@ -19,6 +19,7 @@ struct ChecklistsView: View {
                         $checklist in
                         NavigationLink(destination: ItemsView(model: $model, checklist: $checklist)){
                             Text(checklist.title)
+                                .foregroundColor(.accentColor)
                                 .font(.system(size: 20))
                                 .fontWeight(.medium)
                         }.padding(4)
