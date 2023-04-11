@@ -33,24 +33,26 @@ struct ItemsView: View {
                 List {
                     ForEach($tempChecklist.items){
                         $item in
-                        HStack {
-                            Text(item.name.capitalized)
-                                .foregroundColor(.accentColor)
-                                .font(.system(size: 18))
-                                .fontWeight(.medium)
-                                .padding(6)
-                            Spacer()
-                            if (item.status == true){
-                                Image(systemName: "checkmark.seal.fill")
-                                    .resizable()
-                                    .foregroundColor(Color(.systemGreen))
-                                    .frame(width: 25, height: 25)}
-                        }.padding(4)
+                        ZStack {
+                            HStack {
+                                Text(item.name.capitalized)
+                                    .foregroundColor(.accentColor)
+                                    .font(.system(size: 18))
+                                    .fontWeight(.medium)
+                                    .padding(6)
+                                Spacer()
+                                if (item.status == true){
+                                    Image(systemName: "checkmark.seal.fill")
+                                        .resizable()
+                                        .foregroundColor(Color(.systemGreen))
+                                        .frame(width: 25, height: 25)}
+                            }.padding(4)
+                        }
                         .onTapGesture {
                             if (item.status != true){item.status = true
                                 print("Item Status Changed")
                             }
-                            else {item.status = false}}
+                        else {item.status = false}}
                     }
                     .onDelete(perform: deleteItem)
                     .onMove(perform: moveItem)

@@ -20,6 +20,7 @@
 		AE23042129DAF33700AB8A35 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23042029DAF33700AB8A35 /* AddItemView.swift */; };
 		AE23042329DAF9B000AB8A35 /* UndoResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23042229DAF9B000AB8A35 /* UndoResetButton.swift */; };
 		AEF1D31E29C965D900506AC3 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DB9C729C54F520089BD8E /* DataModel.swift */; };
+		AEFE874D29E3C860003451FE /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFE874C29E3C860003451FE /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		AE23041E29DAF24600AB8A35 /* TitleEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditView.swift; sourceTree = "<group>"; };
 		AE23042029DAF33700AB8A35 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		AE23042229DAF9B000AB8A35 /* UndoResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoResetButton.swift; sourceTree = "<group>"; };
+		AEFE874C29E3C860003451FE /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 		AE396BE829D504270043CA65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AEFE874C29E3C860003451FE /* SplashScreenView.swift */,
 				AE1DB99A29C54E270089BD8E /* ChecklistsView.swift */,
 				AE1DB9CC29C572220089BD8E /* ItemsView.swift */,
 				AE23041E29DAF24600AB8A35 /* TitleEditView.swift */,
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEFE874D29E3C860003451FE /* SplashScreenView.swift in Sources */,
 				AE23042129DAF33700AB8A35 /* AddItemView.swift in Sources */,
 				AE1DB99B29C54E270089BD8E /* ChecklistsView.swift in Sources */,
 				AEF1D31E29C965D900506AC3 /* DataModel.swift in Sources */,

@@ -15,7 +15,15 @@ struct ChecklistsView: View {
         NavigationView {
             VStack (alignment: .leading) {
                 List{
-                    ForEach($model.checklists){
+                    if (model.checklists == []) {
+                        Button("No Checklist tap to add new"){addChecklist()}
+                            .foregroundColor(.gray)
+                            .font(.system(size: 18))
+                            .fontWeight(.medium)
+                            .padding(6)
+                    }
+                    else {
+                        ForEach($model.checklists){
                         $checklist in
                         NavigationLink(destination: ItemsView(model: $model, checklist: $checklist)){
                             Text(checklist.title)
@@ -24,7 +32,7 @@ struct ChecklistsView: View {
                                 .fontWeight(.medium)
                         }.padding(4)
                     }.onDelete(perform: deleteChecklist)
-                     .onMove(perform: moveChecklist)
+                    .onMove(perform: moveChecklist)}
                 }.navigationTitle("📝 My Checklists")
                  .navigationBarItems(leading: Button("Add +"){addChecklist()},trailing: EditButton())
                  .padding(.top,2)
