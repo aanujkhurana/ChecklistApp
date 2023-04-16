@@ -9,24 +9,31 @@ import SwiftUI
 
 struct TitleEditView: View {
     
-    @Binding var title: String
-    @State var newtitle: String = ""
-    
     @Environment(\.editMode) var editMode
     
+    @Binding var title: String //binding to update title in itemview
+    @State var newtitle: String = ""
+    
     var body: some View {
-        HStack{
+        VStack{
             if(editMode?.wrappedValue == .active) {
                 HStack{
                     Image(systemName: "pencil")
                     TextField("input new value:", text: $newtitle)
                     .font(.title)
                     .fontWeight(.medium)
-                    Button("Cancel"){newtitle = title}
-                }.onAppear{newtitle = title}
-                 .onDisappear{title = newtitle}
+                    Button("Cancel"){ newtitle = title }
+                } //Hstack end
+                .onAppear{ newtitle = title }
+                 .onDisappear{ title = newtitle
+                     saveData()
+                     // save newtitle after changing
+                 }.padding(.leading)
             }
-            else {Text(title)}
+            else { Text(title)
+                    .font(.title)
+                    .fontWeight(.medium)
+            }
         }
     }
 }

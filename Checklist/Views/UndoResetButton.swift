@@ -11,20 +11,19 @@ struct UndoResetButton: View {
     
     @Environment(\.editMode) var editMode
     
-    @State var isPressed = true // Toggle the pressed state
-    
     var reset: () -> Void
-    
     var undo: () -> Void
+    @State var isPressed = true // Toggle the pressed state
     
     var body: some View {
         HStack{
             if(editMode?.wrappedValue == .active) {
                 Button(action: {
-                    if isPressed {reset()}
-                    else {undo()}
-                    isPressed.toggle()
-                }, label: {
+                    if isPressed { reset() }
+                    else { undo() }
+                    isPressed.toggle() //change state
+                },
+                       label: {
                     if isPressed {
                         Text("Reset")
                             .padding(.leading)
@@ -37,7 +36,7 @@ struct UndoResetButton: View {
                         Image(systemName: "arrow.uturn.forward")}
                 })
             }
-        }
+        } //Hstack end
     }
 }
 

@@ -10,9 +10,10 @@ import SwiftUI
 //Main
 @main
 struct ChecklistApp: App {
+    @StateObject var model: DataModel = DataModel.getDataModel() //classes to mainview
     var body: some Scene {
         WindowGroup {
-            SplashScreenView()
+            ChecklistsView(model: model) //class as observed object
         }
     }
 }

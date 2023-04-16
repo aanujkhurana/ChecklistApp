@@ -9,15 +9,9 @@ import SwiftUI
 
 struct SplashScreenView: View {
     
-    @State var isActive: Bool = false
-    @State var model: DataModel = DataModel()
-    
+//    loading page view
     var body: some View {
         VStack {
-            if self.isActive {
-                ChecklistsView(model: $model)
-            }
-            else {
                 VStack{
                     Spacer()
                     Image("logo")
@@ -27,25 +21,12 @@ struct SplashScreenView: View {
                     Text("Checklists")
                         .font(.largeTitle)
                         .fontWeight(.medium)
-                    ProgressView("Loading")
+                    ProgressView("Loading") //loading annimation
                     Spacer()
                     Text("Create by Anuj Khurana")
                         .font(.body)
                         .foregroundColor(.accentColor)
                 }
-            }
-        }.onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                withAnimation {
-                    self.isActive = true
-                }
-            }
         }
-    }
-}
-
-struct SplashView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashScreenView()
     }
 }

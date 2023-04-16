@@ -9,70 +9,30 @@ import SwiftUI
 
 struct ChecklistsView: View {
     
-    @Binding var model: DataModel
+    @ObservedObject var model: DataModel //class datamodel as stateobject from main
     
     var body: some View {
-        NavigationView {
-            VStack (alignment: .leading) {
-                List{
-                    if (model.checklists == []) {
-                        Button("No Checklist tap to add new"){addChecklist()}
-                            .foregroundColor(.gray)
-                            .font(.system(size: 18))
-                            .fontWeight(.medium)
-                            .padding(6)
-                    }
-                    else {
-                        ForEach($model.checklists){
-                        $checklist in
-                        NavigationLink(destination: ItemsView(model: $model, checklist: $checklist)){
-                            Text(checklist.title)
-                                .foregroundColor(.accentColor)
-                                .font(.system(size: 20))
-                                .fontWeight(.medium)
-                        }.padding(4)
-                    }.onDelete(perform: deleteChecklist)
-                    .onMove(perform: moveChecklist)}
-                }.navigationTitle("📝 My Checklists")
-                 .navigationBarItems(leading: Button("Add +"){addChecklist()},trailing: EditButton())
-                 .padding(.top,2)
-                 .listStyle(.automatic)
-                 .background(.white)
+        if(model.loadingCompleted){
+            NavigationView {
+                VStack (alignment: .leading) {
+                    List{
+                        ForEach(model.checklists){
+                            checklist in
+                            NavigationLink(destination: ItemsView(checklist: checklist)){
+                                checklistRowView(checklist: checklist)
+                            }.padding(4)
+                        }.onDelete(perform: model.deleteChecklist)
+                            .onMove(perform: model.moveChecklist)
+                    } //list end
+                    .navigationTitle("📝 My Checklists")
+                    .navigationBarItems(leading: Button("Add +"){model.addChecklist()},trailing: EditButton())
+                    .padding(.top,2)
+                    .listStyle(.automatic)
+                    .background(.white)
+                } //vstack end
             }
-        }.onAppear{}
-        .onDisappear{model.save()}
-    }
-    
-    //    Checklist functions
-    //Delete func
-    func deleteChecklist(indexSet: IndexSet) {
-        model.checklists.remove(atOffsets: indexSet)
-        model.save()
-        print("deleteChecklist called")
-    } // need to save model after it is changed.
-        
-    //Move func
-    func moveChecklist(from: IndexSet, to: Int) {
-        model.checklists.move(fromOffsets: from, toOffset: to)
-        model.save()
-        print("moveChecklist called")
-    } // need to save model after it is changed.
-        
-    //add func
-    func addChecklist() {
-        let newChecklist = Checklists(title: "New Checklist", items: [])
-        model.checklists.append(newChecklist)
-        model.save()
-        print("addChecklist called")
-    } // need to save model after it is changed.
-}
-    
-
-//Preview Canvas
-    struct ContentView_Previews: PreviewProvider {
-        @State static var model = DataModel()
-        static var previews: some View {
-            ChecklistsView(model: $model)
+        }
+            else{ SplashScreenView() }
         }
     }
 
