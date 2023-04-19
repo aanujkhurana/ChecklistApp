@@ -9,8 +9,8 @@ The purpose of this miletone is to Complete my app and make it a fully polished 
 .Create data model and view in swiftUI
 .creation of a navigation view and navigation link
 .implementation of binding variables and state variables
-.creation of buttons with custom views and mutiple functions
-.how to edit add and delete from lists
+.creation of global function 
+.how to move and delete from lists without edit mode
 .how to create lists of lists
 .loading and saving data into a "JSON" file, and JSON serialisation
 .the transition between views 
@@ -18,6 +18,8 @@ The purpose of this miletone is to Complete my app and make it a fully polished 
 
 ##For MILESTONE 2 I implemented:
 Created Classes for Checklist and items in checklists and created a class for data model for MVVM.
+Using the functions in datamodel for jason serialisation to load and save data from file
+
 
 
 
