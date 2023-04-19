@@ -8,6 +8,7 @@
 import Foundation
 
 // Checklists Class //
+/// List of checklists
 class Checklist: Codable, Identifiable, ObservableObject {
     
     var id = UUID()
@@ -49,6 +50,8 @@ class Checklist: Codable, Identifiable, ObservableObject {
             print("moveItem called")
             saveData()}
     //Add Item func
+    /// add new items to items array
+    /// - Parameter item: name of item with status false
     func addItem(_ item: String){
         let newItem = Item(name: item, status: false)
         items.append(newItem)
@@ -59,6 +62,7 @@ class Checklist: Codable, Identifiable, ObservableObject {
 }
 
 // Items Class //
+/// list of items inside checklist
 class Item: Codable ,Identifiable, ObservableObject {
     var id = UUID()
     var name: String //item name
@@ -70,7 +74,7 @@ class Item: Codable ,Identifiable, ObservableObject {
         self.name = name
         self.status = status
     }
-//    to make litem model codable
+///    to make litem model codable
     enum CodingKeys: CodingKey {
         case name
         case status
@@ -89,25 +93,31 @@ class Item: Codable ,Identifiable, ObservableObject {
     }
 
 //// Item Function
-    //change all item status to false
+    /// change all item status to false
         func reset() {
             preStatus = status
             status = false
         }
-    // undo reset function to previous satus of items
-        func unDo() {
+    /// undo reset function to previous satus of items
+        func undoReset() {
             status = preStatus
         }
 }
 
 
-//TestData for testing //
-var testData = [
-    Checklist(title: "Checklist1", items:[Item(name: "Item121", status: false), Item(name: "Item909", status: true)]),
-    Checklist(title: "Checklist2", items: [Item(name: "dishes", status: false), Item(name: "shopping", status: true)])]
-
+///TestData for testing///
+// Create some test items
+let item1 = Item(name: "Buy milk", status: false)
+let item2 = Item(name: "Go for a run", status: true)
+let item3 = Item(name: "Finish homework", status: false)
+// Create a test checklist with the items
+let testData = [
+    Checklist(title: "Checklist1", items: [item1, item2]),
+    Checklist(title: "Checklist2", items: [item3])
+]
 
 // Checklist Data model //
+/// data model for view, write and load to file
 class DataModel: Codable ,ObservableObject {
     
     @Published var checklists: [Checklist] // to refresh after change
@@ -203,6 +213,7 @@ class DataModel: Codable ,ObservableObject {
         saveData()
     }
     //add Checklist func
+    /// adds new checklist to list of checklists
     func addChecklist() {
         let newChecklist = Checklist(title: "New Checklist", items: [])
         checklists.append(newChecklist)

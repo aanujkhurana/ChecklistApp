@@ -17,12 +17,12 @@ struct ItemsView: View {
         VStack {
                 TitleEditView(title: $checklist.title).padding()
                 List {
-                    AddItemView(callback: checklist.addItem)
                     ForEach(checklist.items){
                         item in itemRowView(item: item)
                     }
                     .onDelete(perform: checklist.deleteItem)
                     .onMove(perform: checklist.moveItem)
+                    AddItemView(callback: checklist.addItem)
                 } //list end
                 .listStyle(.plain)
             } //vstack end
@@ -37,10 +37,10 @@ struct ItemsView: View {
                 checklist.items[i].reset() }
             print("ResetList called")
             saveData() }
-// Undo Reset Function
+// Undo Reset Function  `   `
     func undoreset(){
         for i in 0..<checklist.items.count {
-            checklist.items[i].unDo() }
+            checklist.items[i].undoReset() }
         print("Undo called")
         saveData() }
 }
